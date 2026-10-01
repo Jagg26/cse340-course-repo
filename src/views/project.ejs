@@ -2,6 +2,7 @@
 <main>
     <h1><%= project.title %></h1>
     <p><%= project.description %></p>
+    <p><a href="/edit-project/<%= project.project_id %>">Edit Project</a></p>
     <ul>
         <li>
             Date: <%= project.date.toLocaleDateString('en-US', {
