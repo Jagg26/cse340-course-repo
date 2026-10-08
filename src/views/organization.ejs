@@ -6,7 +6,9 @@
         <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
         <p><%= organizationDetails.description %></p>
         <p><a href="mailto:<%= organizationDetails.contact_email %>"><%= organizationDetails.contact_email %></a></p>
-        <p><a href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></p>
+        <% if (user && user.role_name === 'admin') { %>
+            <p><a href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></p>
+        <% } %>
     </section>
 
     <section>

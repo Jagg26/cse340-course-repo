@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+<main>
+    <h1><%= title %></h1>
+
+    <% if (users.length > 0) { %>
+        <ul>
+            <% users.forEach(userAccount => { %>
+                <li>
+                    <strong><%= userAccount.name %></strong>:
+                    <%= userAccount.email %>
+                    (<%= userAccount.role_name %>)
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No registered users found.</p>
+    <% } %>
+</main>
+<%- include('partials/footer') %>
