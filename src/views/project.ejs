@@ -19,6 +19,19 @@
             <a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a>
         </li>
     </ul>
+    <% if (isLoggedIn) { %>
+        <h2>Volunteer</h2>
+        <% if (isVolunteering) { %>
+            <p>You are volunteering for this project.</p>
+            <form class="inline-form" action="/project/<%= project.project_id %>/remove-volunteer" method="POST">
+                <button type="submit">Remove Me as a Volunteer</button>
+            </form>
+        <% } else { %>
+            <form class="inline-form" action="/project/<%= project.project_id %>/volunteer" method="POST">
+                <button type="submit">Volunteer for This Project</button>
+            </form>
+        <% } %>
+    <% } %>
     <h2>Categories</h2>
     <% if (user && user.role_name === 'admin') { %>
         <p><a href="/assign-categories/<%= project.project_id %>">Edit Categories</a></p>

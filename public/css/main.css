@@ -215,6 +215,18 @@ button:hover {
     background: var(--color-primary-dark);
 }
 
+.inline-form {
+    display: inline-grid;
+    gap: 0;
+    margin: 8px 0 0;
+}
+
+.inline-form button {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+}
+
 .main-logo {
     display: block;
     width: min(100%, 520px);

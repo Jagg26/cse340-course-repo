@@ -87,6 +87,24 @@ VALUES
 ((SELECT organization_id FROM organization WHERE name = 'UnityServe Volunteers'), 'Weekend Food Pantry Team', 'Volunteers will stock shelves, prepare grocery bags, and assist visitors at a food pantry.', 'Northside Food Pantry', '2026-10-10');
 
 -- ========================================
+-- Service Project Volunteer Join Table
+-- ========================================
+CREATE TABLE service_project_volunteer (
+    user_id INTEGER NOT NULL,
+    project_id INTEGER NOT NULL,
+    volunteered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, project_id),
+    CONSTRAINT fk_project_volunteer_user
+        FOREIGN KEY (user_id)
+        REFERENCES users (user_id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_project_volunteer_project
+        FOREIGN KEY (project_id)
+        REFERENCES service_project (project_id)
+        ON DELETE CASCADE
+);
+
+-- ========================================
 -- Service Project Category Table
 -- ========================================
 CREATE TABLE service_project_category (
